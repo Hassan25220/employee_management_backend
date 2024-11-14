@@ -1,5 +1,5 @@
 Employee Management Backend
-This project is a backend service for an employee management application, built with Node.js, GraphQL, MongoDB, and Spring Boot. It provides functionalities to manage employee data, including adding, updating, and retrieving employee information. The project includes role-based access control (RBAC) to restrict certain actions to specific user roles (admin and employee).
+This project is a backend service for an employee management application, developed with Node.js, GraphQL, and MongoDB. It offers essential features for managing employee data, including adding, updating, and retrieving information. Role-based access control (RBAC) restricts actions to specific user roles, such as admin and employee.
 
 Table of Contents
 Features
@@ -15,8 +15,8 @@ License
 Features
 GraphQL API with queries and mutations for managing employees.
 Employee Data Model with fields like ID, name, age, class, subjects, and attendance.
-Pagination and Sorting for efficient querying.
-Role-Based Access Control (RBAC) to limit certain actions based on roles.
+Pagination and Sorting for efficient data querying.
+Role-Based Access Control (RBAC) to limit actions based on user roles.
 Authentication and Authorization with JWT.
 Performance Optimization for efficient backend performance.
 Project Structure
@@ -39,12 +39,12 @@ employee-management-backend/
 ├── package.json
 └── README.md
 Technologies Used
-Node.js and Express for server setup.
-GraphQL for API structure.
-MongoDB for data storage.
-JWT (JSON Web Tokens) for secure authentication and authorization.
-Apollo Server for GraphQL integration.
-Spring Boot (to be used if required as per setup).
+Node.js and Express for server setup
+GraphQL for API structure
+MongoDB for data storage
+JWT (JSON Web Tokens) for secure authentication
+Apollo Server for GraphQL integration
+Spring Boot (if required)
 Setup Instructions
 Clone the Repository
 
@@ -57,10 +57,9 @@ Install Dependencies
 bash
 Copy code
 npm install
-Set Up MongoDB Connection
-Ensure MongoDB is running and set up in the .env file.
+Set Up MongoDB Connection Ensure MongoDB is running and configured in the .env file.
 
-Configure Environment Variables Create a .env file in the root directory with the following variables:
+Configure Environment Variables Create a .env file in the root directory:
 
 plaintext
 Copy code
@@ -71,32 +70,25 @@ Start the Server
 bash
 Copy code
 npm start
-Access the API
-The GraphQL Playground will be available at http://localhost:4000/graphql.
+Access the API at http://localhost:4000/graphql.
 
 Environment Variables
-MONGO_URI: MongoDB URI for database connection.
-JWT_SECRET: Secret key for JWT token generation and validation.
+MONGO_URI: MongoDB URI for database connection
+JWT_SECRET: Secret key for JWT token generation and validation
 Usage
-Use a tool like Postman or the GraphQL Playground to test the API endpoints.
+Use Postman or GraphQL Playground to test API endpoints.
 Authenticate using a JWT token to access secured routes.
-Admin and Employee users have different permissions (details below).
+Admin and Employee roles have different permissions.
 Role-Based Access Control (RBAC)
-This backend service includes role-based access control to restrict actions based on user roles:
-
-Admin: Can perform all actions, including adding, updating, and listing all employees.
-Employee: Limited permissions. Can view their own details and update them if needed.
+Admin: Full access, can add, update, and view all employees.
+Employee: Limited access, can view and update their own details.
 API Documentation
 Queries
-List Employees
-Returns a paginated list of employees. Accessible by Admin only.
-Get Employee
-Fetch details of a specific employee by ID. Accessible by both Admin and Employee.
+List Employees: Returns a paginated list of employees (Admin only).
+Get Employee: Fetches details of a specific employee (Admin and Employee).
 Mutations
-Add Employee
-Allows an Admin to add a new employee.
-Update Employee
-Allows Admin to update any employee’s details. Employees can update only their own details.
+Add Employee: Allows Admin to add a new employee.
+Update Employee: Allows Admin to update any employee’s details; employees can update only their own details.
 Example Query
 graphql
 Copy code
@@ -121,7 +113,7 @@ mutation AddEmployee($name: String!, $age: Int!, $class: String, $subjects: [Str
   }
 }
 Performance Optimization
-Pagination and Sorting are implemented to handle large datasets efficiently.
-Indexing: Consider adding indexes on fields frequently queried, such as name and age for faster access.
+Pagination and Sorting: Handles large datasets efficiently.
+Indexing: Recommended on frequently queried fields like name and age.
 License
 This project is licensed under the MIT License.
